@@ -3,8 +3,17 @@
 
 var map;
 var geocoder;
+var markers = [];
+
+
 
 init = function () {	
+	
+	$("#enterLocationField").focus().keypress(function(event) {
+	  if ( event.which == 13 ) {
+	     searchMap();
+	   }
+	 });
 	// window.console.log($('#map_canvas'));	
 	var myOptions = {
 		zoom: 12,
@@ -30,7 +39,16 @@ var handleGeocodeResponse = function(results, status) {
 };
 
 var handleMapClick = function(details) {
-	window.console.log(details.latLng);
+	var clickPos = details.latLng;
+	var marker = new google.maps.Marker({
+		map:map,
+		position: clickPos
+	});
+	markers.push(marker);
+	map.panTo(marker.getPosition());
+	var listItem = $("<li><button id='location"+(markers.length)+"' type='button'>Location "+(markers.length)+"</button></li>");
+	listItem.hide().appendTo("#markerList").fadeIn();
+	listItem.click(getLocationClickHandler(markers.length-1));
 };
 
 var searchMap = function () {
@@ -39,6 +57,12 @@ var searchMap = function () {
 	}
 	geocoder.geocode(request, handleGeocodeResponse);
 };
+
+var getLocationClickHandler = function (locationIndex) {
+	return function() {
+		map.panTo(markers[locationIndex].getPosition());
+	}
+}
 
 
 $(init);

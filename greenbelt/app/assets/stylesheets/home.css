@@ -1,4 +1,9 @@
 #map_canvas {
-	height:80%;
+	height:70%;
 	width:100%;
 }
+
+body,html {
+	margin: 0px;
+}
+
