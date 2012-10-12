@@ -26,9 +26,9 @@ end
 # in production environments by default.
 group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :rubyss-rails',
-  gem 'sass-rails',
-  gem 'uglifier',
+  gem 'therubyracer', :platforms => :rubyss-rails
+  gem 'sass-rails'
+  gem 'uglifier'
 end
 
 gem 'jquery-rails'
