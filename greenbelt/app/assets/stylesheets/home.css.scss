@@ -1,3 +1,23 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#map_canvas {
+	height:70%;
+	width:100%;
+}
+
+#title {
+	width: 100%;
+	font-family: Arial, sans serif;
+	font-size: 80px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#promise {
+	width: 100%;
+	font-family: Arial, sans serif;
+	font-size: 20px;
+	text-align: center;
+}
